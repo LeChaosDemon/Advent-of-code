@@ -1,0 +1,28 @@
+# Open the file and read data
+with open("stuff.txt", "r") as f:
+    lst1 = []
+    lst2 = []
+    
+    for line in f:
+        data = line.strip()  # Strip newline characters
+        listData = data.split("   ")
+        if listData != ['']:  # Check if the line is not empty
+            lst1.append(listData[0])
+            lst2.append(listData[1])
+
+# Sort the lists
+lst1.sort()
+lst2.sort()
+
+# Problem 1: Calculate total distance
+if len(lst1) == len(lst2):
+    total_distance = sum(abs(float(a) - float(b)) for a, b in zip(lst1, lst2))
+    print(int(total_distance))
+
+# Problem 2: Calculate similarity
+dic = {}
+for item in lst2:
+    dic[item] = dic.get(item, 0) + 1
+
+similarity = sum(dic.get(i, 0) * float(i) for i in lst1)
+print(int(similarity))
