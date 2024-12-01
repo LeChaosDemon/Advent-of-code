@@ -1,4 +1,4 @@
-# Open the file and read data
+#  read data
 with open("stuff.txt", "r") as f:
     lst1 = []
     lst2 = []
@@ -10,16 +10,16 @@ with open("stuff.txt", "r") as f:
             lst1.append(listData[0])
             lst2.append(listData[1])
 
-# Sort the lists
+# sort lists
 lst1.sort()
 lst2.sort()
 
-# Problem 1: Calculate total distance
+# Q 1: total distance
 if len(lst1) == len(lst2):
     total_distance = sum(abs(float(a) - float(b)) for a, b in zip(lst1, lst2))
     print(int(total_distance))
 
-# Problem 2: Calculate similarity
+# q 2: similarity
 dic = {}
 for item in lst2:
     dic[item] = dic.get(item, 0) + 1
